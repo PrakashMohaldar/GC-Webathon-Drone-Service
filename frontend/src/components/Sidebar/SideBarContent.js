@@ -22,19 +22,14 @@ const SidebarContent = ({ logoText, routes }) => {
     const inactiveColor = useColorModeValue("gray.400", "gray.400");
     console.log(activeBg)
 
-    // to check for active links and opened collapses
   let location = useLocation();
-  // this is for the rest of the collapses
+
   const [state, setState] = React.useState({});
 
-  // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
     return location.pathname === routeName ? "active" : "";
   };
   const createLinks = (routes) => {
-    // Chakra Color Mode
-
-
 
     return (routes.map((prop, key) => {
       if (prop.redirect) {
@@ -58,9 +53,7 @@ const SidebarContent = ({ logoText, routes }) => {
               }}
               py="12px"
             >
-              {document.documentElement.dir === "rtl"
-                ? prop.rtlName
-                : prop.name}
+              { prop.name}
             </Text>
             {createLinks(prop.views)}
           </div>

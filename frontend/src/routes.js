@@ -18,7 +18,7 @@ import {
 
   var dashRoutes ;
 
-  var client = "admin";
+  var client = "adminss";
   if(client === "admin"){
     dashRoutes = [
         {
@@ -28,38 +28,69 @@ import {
             component: Dashboard,
             layout:"/admin",
         },
-        {
-            path: "/tables",
-            name: "Tables",
-            icon: <StatsIcon color="inherit" />,
-            component: Tables,
-            layout: "/admin",
-          },
-          {
-            path: "/billing",
-            name: "Billing",
-            icon: <CreditIcon color="inherit" />,
-            component: Billing,
-            layout: "/admin",
-          },
-          {
-            path: "/rtl-support-page",
-            name: "RTL",
-            icon: <SupportIcon color="inherit" />,
-            component: RTLPage,
-            layout: "/rtl",
-          },
-          {
-            name: "ACCOUNT PAGES",
-            category: "account",
-            state: "pageCollapse",
-            views: [
+        // {
+        //     path: "/tables",
+        //     name: "Tables",
+        //     icon: <StatsIcon color="inherit" />,
+        //     component: Tables,
+        //     layout: "/admin",
+        //   },
+          // {
+          //   path: "/billing",
+          //   name: "Billing",
+          //   icon: <CreditIcon color="inherit" />,
+          //   component: Billing,
+          //   layout: "/admin",
+          // },
+          // {
+          //   path: "/rtl-support-page",
+          //   name: "RTL",
+          //   icon: <SupportIcon color="inherit" />,
+          //   component: RTLPage,
+          //   layout: "/rtl",
+          // },
+       
+              // {
+              //   path: "/profile",
+              //   name: "Profile",
+              //   icon: <PersonIcon color="inherit" />,
+              //   secondaryNavbar: true,
+              //   component: Profile,
+              //   layout: "/admin",
+              // },
+              {
+                path: "/signin",
+                name: "Sign In",
+                icon: <DocumentIcon color="inherit" />,
+                component: SignIn,
+                layout: "/auth",
+              },
+              {
+                path: "/signup",
+                name: "Sign Up",
+                icon: <RocketIcon color="inherit" />,
+                secondaryNavbar: true,
+                component: SignUp,
+                layout: "/auth",
+              },
+       
+    ]
+  }
+  else{
+    dashRoutes = [
               {
                 path: "/profile",
                 name: "Profile",
                 icon: <PersonIcon color="inherit" />,
                 secondaryNavbar: true,
                 component: Profile,
+                layout: "/admin",
+              },
+                {
+                path: "/yourOrders",
+                name: "yourOrders",
+                icon: <CreditIcon color="inherit" />,
+                component: Billing,
                 layout: "/admin",
               },
               {
@@ -77,8 +108,9 @@ import {
                 component: SignUp,
                 layout: "/auth",
               },
-            ],
-          },
+
+
     ]
+
   }
   export default dashRoutes;
