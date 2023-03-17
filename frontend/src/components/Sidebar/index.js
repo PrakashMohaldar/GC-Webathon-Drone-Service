@@ -2,7 +2,7 @@ import {
     Box, useColorModeValue
   } from "@chakra-ui/react";
   import React from "react";
-  import SidebarContent from "./SidebarContent";
+import SidebarContent from "./SideBarContent";
 
   function Sidebar(props){
     const mainPanel = React.useRef();
@@ -47,3 +47,5 @@ import {
 
 
   }
+
+  export default Sidebar
