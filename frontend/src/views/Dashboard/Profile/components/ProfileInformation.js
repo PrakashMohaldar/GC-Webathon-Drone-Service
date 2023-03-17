@@ -1,9 +1,9 @@
 // Chakra imports
 import { Flex, Icon, Link, Text, useColorModeValue } from "@chakra-ui/react";
 // Custom components
-import Card from "components/Card/Card";
-import CardBody from "components/Card/CardBody";
-import CardHeader from "components/Card/CardHeader";
+import Card from "../../../../components/Card/Card";
+import CardBody from "../../../../components/Card/CardBody";
+import CardHeader from "../../../../components/Card/CardHeader";
 import React from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
@@ -15,7 +15,7 @@ const ProfileInformation = ({
   email,
   location,
 }) => {
-  // Chakra color mode
+
   const textColor = useColorModeValue("gray.700", "white");
 
   return (
@@ -38,14 +38,8 @@ const ProfileInformation = ({
               {name}
             </Text>
           </Flex>
-          <Flex align='center' mb='18px'>
-            <Text fontSize='md' color={textColor} fontWeight='bold' me='10px'>
-              Mobile:{" "}
-            </Text>
-            <Text fontSize='md' color='gray.500' fontWeight='400'>
-              {mobile}
-            </Text>
-          </Flex>
+  
+
           <Flex align='center' mb='18px'>
             <Text fontSize='md' color={textColor} fontWeight='bold' me='10px'>
               Email:{" "}
@@ -54,45 +48,7 @@ const ProfileInformation = ({
               {email}
             </Text>
           </Flex>
-          <Flex align='center' mb='18px'>
-            <Text fontSize='md' color={textColor} fontWeight='bold' me='10px'>
-              Location:{" "}
-            </Text>
-            <Text fontSize='md' color='gray.500' fontWeight='400'>
-              {location}
-            </Text>
-          </Flex>
-          <Flex align='center' mb='18px'>
-            <Text fontSize='md' color={textColor} fontWeight='bold' me='10px'>
-              Social Media:{" "}
-            </Text>
-            <Flex>
-              <Link
-                href='#'
-                color='teal.300'
-                fontSize='lg'
-                me='10px'
-                _hover={{ color: "teal.300" }}>
-                <Icon as={FaFacebook} />
-              </Link>
-              <Link
-                href='#'
-                color='teal.300'
-                fontSize='lg'
-                me='10px'
-                _hover={{ color: "teal.300" }}>
-                <Icon as={FaInstagram} />
-              </Link>
-              <Link
-                href='#'
-                color='teal.300'
-                fontSize='lg'
-                me='10px'
-                _hover={{ color: "teal.300" }}>
-                <Icon as={FaTwitter} />
-              </Link>
-            </Flex>
-          </Flex>
+
         </Flex>
       </CardBody>
     </Card>

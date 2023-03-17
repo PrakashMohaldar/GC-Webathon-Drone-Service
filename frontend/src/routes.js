@@ -1,8 +1,5 @@
 import Dashboard from "./views/Dashboard/Dashboard";
-import Tables from "./views/Dashboard/Tables";
-import Billing from "./views/Dashboard/Billing";
-import RTLPage from "./views/Dashboard/RTL";
-import Profile from "./views/Dashboard/Profile";
+import YourOrders from "./views/Dashboard/YourOrders";
 import SignIn from "./views/Auth/SignIn.js";
 import SignUp from "./views/Auth/SignUp.js";
 
@@ -18,8 +15,8 @@ import {
 
   var dashRoutes ;
 
-  var client = "adminss";
-  if(client === "admin"){
+  var role = "admin";
+  if(role === "admin"){
     dashRoutes = [
         {
             path:"/dashboard",
@@ -28,36 +25,7 @@ import {
             component: Dashboard,
             layout:"/admin",
         },
-        // {
-        //     path: "/tables",
-        //     name: "Tables",
-        //     icon: <StatsIcon color="inherit" />,
-        //     component: Tables,
-        //     layout: "/admin",
-        //   },
-          // {
-          //   path: "/billing",
-          //   name: "Billing",
-          //   icon: <CreditIcon color="inherit" />,
-          //   component: Billing,
-          //   layout: "/admin",
-          // },
-          // {
-          //   path: "/rtl-support-page",
-          //   name: "RTL",
-          //   icon: <SupportIcon color="inherit" />,
-          //   component: RTLPage,
-          //   layout: "/rtl",
-          // },
-       
-              // {
-              //   path: "/profile",
-              //   name: "Profile",
-              //   icon: <PersonIcon color="inherit" />,
-              //   secondaryNavbar: true,
-              //   component: Profile,
-              //   layout: "/admin",
-              // },
+
               {
                 path: "/signin",
                 name: "Sign In",
@@ -78,20 +46,12 @@ import {
   }
   else{
     dashRoutes = [
-              {
-                path: "/profile",
-                name: "Profile",
-                icon: <PersonIcon color="inherit" />,
-                secondaryNavbar: true,
-                component: Profile,
-                layout: "/admin",
-              },
                 {
                 path: "/yourOrders",
-                name: "yourOrders",
+                name: "Your Orders",
                 icon: <CreditIcon color="inherit" />,
-                component: Billing,
-                layout: "/admin",
+                component: YourOrders,
+                layout: "/client",
               },
               {
                 path: "/signin",

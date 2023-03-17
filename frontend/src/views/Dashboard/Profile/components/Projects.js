@@ -7,7 +7,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-// Assets
+
 import avatar2 from "assets/img/avatars/avatar2.png";
 import avatar4 from "assets/img/avatars/avatar4.png";
 import avatar6 from "assets/img/avatars/avatar6.png";
@@ -43,6 +43,10 @@ const Projects = ({ title, description }) => {
           templateColumns={{ sm: "1fr", md: "1fr 1fr", xl: "repeat(4, 1fr)" }}
           templateRows={{ sm: "1fr 1fr 1fr auto", md: "1fr 1fr", xl: "1fr" }}
           gap='24px'>
+
+
+
+            
           <ProjectCard
             image={imageArchitect1}
             name={"Project #1"}

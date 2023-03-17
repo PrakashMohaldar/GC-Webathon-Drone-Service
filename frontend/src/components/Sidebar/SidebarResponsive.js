@@ -20,6 +20,7 @@ import { CreativeTimLogo } from "../Icons/Icons";
 import { Separator } from "../Separator/Separator";
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import SidebarHelp from "./SideBarHelp";
 
 export default function SidebarResponsive(prop){
     let location = useLocation();
@@ -243,12 +244,13 @@ export default function SidebarResponsive(prop){
                 _focus={{ boxShadow: "none" }}
                 _hover={{ boxShadow: "none" }}
               />
-              <DrawerBody maxW="250px" px="1rem">
+              <DrawerBody maxW="250px" px="1rem" overflowY={'hidden'}>
                 <Box maxW="100%" h="100vh">
                   <Box>{brand}</Box>
                   <Stack direction="column" mb="40px">
                     <Box>{links}</Box>
                   </Stack>
+                  <SidebarHelp/>
                 </Box>
               </DrawerBody>
             </DrawerContent>

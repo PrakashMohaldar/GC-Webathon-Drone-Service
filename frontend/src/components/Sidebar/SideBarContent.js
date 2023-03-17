@@ -12,6 +12,7 @@ import { CreativeTimLogo } from "../Icons/Icons";
 import { Separator } from "../Separator/Separator";
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import SidebarHelp from "./SideBarHelp";
 
 
 const SidebarContent = ({ logoText, routes }) => {
@@ -189,6 +190,7 @@ const SidebarContent = ({ logoText, routes }) => {
           <Stack direction="column" mb="40px">
             <Box>{links}</Box>
           </Stack>
+          <SidebarHelp/>
     </>
   )
 }

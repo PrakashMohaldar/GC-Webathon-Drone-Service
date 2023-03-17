@@ -86,10 +86,11 @@ export default function AdminNavbar(props){
       alignItems={{ xl: "center" }}
       borderRadius="16px"
       display="flex"
+      mx={"auto"}
+      me={{sm:"-15px !important", lg:"10px !important" }}
       minH="75px"
       justifyContent={{ xl: "center" }}
       lineHeight="25.6px"
-      mx="auto"
       mt={secondaryMargin}
       pb="8px"
       left={document.documentElement.dir === "rtl" ? "30px" : ""}
@@ -111,7 +112,8 @@ export default function AdminNavbar(props){
           sm: "row",
           md: "row",
         }}
-        alignItems={{ xl: "center" }}
+        alignItems={{ sm: "center" }}
+        justifyContent="center"
       >
         <Box mb={{ sm: "8px", md: "0px" }}>
           <Breadcrumb>

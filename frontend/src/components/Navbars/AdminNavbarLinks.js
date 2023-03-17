@@ -29,8 +29,9 @@ export default function AdminNavbarLinks(props){
     <Flex
       pe={{ sm: "0px", md: "16px" }}
       w={{ sm: "100%", md: "auto" }}
-      alignItems="center"
       flexDirection="row"
+      alignItems="center"
+
     >
      
       <Text display={{ sm: "flex", md: "flex" }}>Logged In</Text>

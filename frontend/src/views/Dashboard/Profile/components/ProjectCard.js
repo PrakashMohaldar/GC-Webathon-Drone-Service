@@ -1,4 +1,4 @@
-// Chakra imports
+
 import {
   Avatar,
   AvatarGroup,
@@ -12,7 +12,7 @@ import {
 import React from "react";
 
 const ProjectCard = ({ image, name, category, avatars, description }) => {
-  // Chakra color mode
+
   const textColor = useColorModeValue("gray.700", "white");
 
   return (

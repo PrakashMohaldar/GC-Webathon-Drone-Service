@@ -11,13 +11,13 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 // Custom components
-import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
-import DashboardTableRow from "components/Tables/DashboardTableRow";
+import Card from "../../../../components/Card/Card.js";
+import CardHeader from "../../../../components/Card/CardHeader.js";
+import DashboardTableRow from "../../../../components/Tables/CurrentOrderCards";
 import React from "react";
 import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
 
-const Projects = ({ title, amount, captions, data }) => {
+const CurrentOrders = ({ title, captions, data }) => {
   const textColor = useColorModeValue("gray.700", "white");
 
   return (
@@ -27,21 +27,6 @@ const Projects = ({ title, amount, captions, data }) => {
           <Text fontSize='lg' color={textColor} fontWeight='bold' pb='.5rem'>
             {title}
           </Text>
-          <Flex align='center'>
-            <Icon
-              as={IoCheckmarkDoneCircleSharp}
-              color='teal.300'
-              w={4}
-              h={4}
-              pe='3px'
-            />
-            <Text fontSize='sm' color='gray.400' fontWeight='normal'>
-              <Text fontWeight='bold' as='span'>
-                {amount} done
-              </Text>{" "}
-              this month.
-            </Text>
-          </Flex>
         </Flex>
       </CardHeader>
       <Table variant='simple' color={textColor}>
@@ -62,17 +47,19 @@ const Projects = ({ title, amount, captions, data }) => {
               <DashboardTableRow
                 key={row.name}
                 name={row.name}
+                orderid={row.orderid}
                 logo={row.logo}
-                members={row.members}
-                budget={row.budget}
+                source={row.source}
+                destination={row.destination}
                 progression={row.progression}
               />
             );
           })}
+
         </Tbody>
       </Table>
     </Card>
   );
 };
 
-export default Projects;
+export default CurrentOrders;
