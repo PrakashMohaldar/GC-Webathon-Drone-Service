@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState} from "react";
 // Chakra imports
 import {
   Box,
@@ -14,9 +14,44 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 // Assets
-// import signInImage from "assets/img/signInImage.png";
+import { useGoogleLogin } from '@react-oauth/google';
+import { useDispatch } from 'react-redux';
+import { signinGoogle, signin } from '../../redux/actions/auth';
+import { useHistory } from "react-router-dom";
+import MainPanel from "../../components/Layout/MainPanel";
 
 function SignIn() {
+  // login
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const navigate = useHistory();
+  const dispatch = useDispatch();
+
+  const handleGoogleLoginSuccess = tokenResponse => {
+    const accessToken = tokenResponse.access_token;
+    dispatch(signinGoogle(accessToken, navigate));
+  };
+  const login = useGoogleLogin({ onSuccess: handleGoogleLoginSuccess });
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    if (email !== '' && password !== '') {
+      dispatch(signin({ email, password }, navigate, setError));
+      setEmail('');
+      setPassword('');
+    }
+  };
+
+  const handleChange = event => {
+    if (event.target.id === 'email') {
+      setEmail(event.target.value);
+      return;
+    }
+    setPassword(event.target.value);
+  };
+
   // Chakra color mode
   const titleColor = useColorModeValue("teal.300", "teal.200");
   const textColor = useColorModeValue("gray.400", "white");
@@ -52,6 +87,7 @@ function SignIn() {
               fontSize='14px'>
               Enter your email and password to sign in
             </Text>
+            <form onSubmit={handleSubmit}>
             <FormControl>
               <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
                 Email
@@ -61,9 +97,11 @@ function SignIn() {
                 mb='24px'
                 fontSize='sm'
                 type='text'
+                id='email'
+                onChange={handleChange}
                 placeholder='Your email adress'
                 size='lg'
-              />
+                />
               <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
                 Password
               </FormLabel>
@@ -72,9 +110,11 @@ function SignIn() {
                 mb='36px'
                 fontSize='sm'
                 type='password'
+                id='password'
+                onChange={handleChange}
                 placeholder='Your password'
                 size='lg'
-              />
+                />
               <Button
                 fontSize='10px'
                 type='submit'
@@ -93,6 +133,7 @@ function SignIn() {
                 SIGN IN
               </Button>
             </FormControl>
+            </form>
             <Flex
               flexDirection='column'
               justifyContent='center'

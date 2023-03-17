@@ -92,7 +92,7 @@ const SidebarContent = ({ logoText, routes }) => {
               }}
             >
               <Flex>
-                {typeof prop.icon === "string" ? (
+                {/* {typeof prop.icon === "string" ? (
                   <Icon>{prop.icon}</Icon>
                 ) : (
                   <IconBox
@@ -104,7 +104,7 @@ const SidebarContent = ({ logoText, routes }) => {
                   >
                     {prop.icon}
                   </IconBox>
-                )}
+                )} */}
                 <Text color={activeColor} my="auto" fontSize="sm">
                   {prop.name}
                 </Text>
@@ -140,7 +140,7 @@ const SidebarContent = ({ logoText, routes }) => {
               }}
             >
               <Flex>
-                {typeof prop.icon === "string" ? (
+                {/* {typeof prop.icon === "string" ? (
                   <Icon>{prop.icon}</Icon>
                 ) : (
                   <IconBox
@@ -152,7 +152,7 @@ const SidebarContent = ({ logoText, routes }) => {
                   >
                     {prop.icon}
                   </IconBox>
-                )}
+                )} */}
                 <Text color={inactiveColor} my="auto" fontSize="sm">
                   {prop.name}
                 </Text>

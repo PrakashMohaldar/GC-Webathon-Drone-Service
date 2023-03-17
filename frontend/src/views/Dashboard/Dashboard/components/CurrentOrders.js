@@ -42,10 +42,10 @@ const CurrentOrders = ({ title, captions, data }) => {
           </Tr>
         </Thead>
         <Tbody>
-          {data.map((row) => {
+          {data.map((row, idx) => {
             return (
               <DashboardTableRow
-                key={row.name}
+                key={idx}
                 name={row.name}
                 orderid={row.orderid}
                 logo={row.logo}

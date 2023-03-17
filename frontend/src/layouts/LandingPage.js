@@ -3,7 +3,7 @@ import { ChakraProvider, Portal, useDisclosure } from '@chakra-ui/react';
 import AdminNavbar from '../components/Navbars/AdminNavbar.js';
 import Sidebar from '../components/Sidebar/index.js';
 import React, { useState } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import routes from '../routes'
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -14,6 +14,7 @@ import theme from '../theme/theme.js';
 import MainPanel from '../components/Layout/MainPanel';
 import PanelContainer from '../components/Layout/PanelContainer';
 import PanelContent from '../components/Layout/PanelContent';
+import { useSelector } from 'react-redux';
 
 
 
@@ -22,6 +23,9 @@ export default function LandingPage(props){
     const [ sidebarVariant, setSidebarVariant ] = useState('opaque');
 
     const [ fixed, setFixed ] = useState(true);
+	const authData = useSelector(state => state.auth.authData);
+
+	const history = useHistory();
 
     const getRoute = () => {
 		return window.location.pathname !== '/admin/full-screen-maps';
@@ -83,6 +87,8 @@ export default function LandingPage(props){
 			}
 		});
 	};
+
+	if(!authData) history.push('/auth/signin') 
 
     const { isOpen, onOpen, onClose } = useDisclosure();
     return(

@@ -17,8 +17,7 @@ const signinController = async (req, res) => {
         },
       })
       .then(async response => {
-        const firstName = response.data.given_name;
-        const lastName = response.data.family_name;
+        const name = response.data.given_name + response.data.family_name;
         const email = response.data.email;
         const picture = response.data.picture;
 
@@ -87,8 +86,7 @@ const signupController = async (req, res) => {
         },
       })
       .then(async response => {
-        const firstName = response.data.given_name;
-        const lastName = response.data.family_name;
+        const name = response.data.given_name + response.data.family_name;
         const email = response.data.email;
         const picture = response.data.picture;
 
@@ -100,8 +98,7 @@ const signupController = async (req, res) => {
         const result = await User.create({
           verified: 'true',
           email,
-          firstName,
-          lastName,
+          name,
           profilePicture: picture,
         });
 
@@ -121,16 +118,13 @@ const signupController = async (req, res) => {
       });
   } else {
     // normal form signup
-    const { email, password, confirmPassword, firstName, lastName } = req.body;
+    const { email, password, name } = req.body;
 
     try {
       if (
         email === '' ||
         password === '' ||
-        firstName === '' ||
-        (lastName === '' &&
-          password === confirmPassword &&
-          password.length >= 4)
+        name === '' 
       )
         return res.status(400).json({ message: 'Invalid field!' });
 
@@ -144,8 +138,7 @@ const signupController = async (req, res) => {
       const result = await User.create({
         email,
         password: hashedPassword,
-        firstName,
-        lastName,
+        name
       });
 
       const token = jwt.sign(

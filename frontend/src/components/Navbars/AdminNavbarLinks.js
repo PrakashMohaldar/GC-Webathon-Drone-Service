@@ -17,13 +17,22 @@ import {
 import SidebarResponsive from "../Sidebar/SidebarResponsive";
 import PropTypes, { func } from "prop-types";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import routes from '../../routes'
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from '../../redux/actions/auth';
 
 export default function AdminNavbarLinks(props){
   const { variant, children, fixed, secondary, onOpen, ...rest } = props;
   let mainText = useColorModeValue("gray.700", "gray.200");
   let navbarIcon = useColorModeValue("gray.500", "gray.200");
+  const dispatch = useDispatch();
+  const navigate = useHistory()
+  const authData = useSelector(state => state.auth.authData);
+
+  const handleLogout = () => {
+    dispatch(logout(navigate));
+  }
 
   return(
     <Flex
@@ -34,7 +43,26 @@ export default function AdminNavbarLinks(props){
 
     >
      
-      <Text display={{ sm: "flex", md: "flex" }}>Logged In</Text>
+     {   authData.token && 
+         <Button
+          type='submit'
+          bg='teal.400'
+          fontSize='14px'
+          color='white'
+          fontWeight='bold'
+          w='100%'
+          h='45'
+          onClick={handleLogout}
+          me='20px'
+          _hover={{
+            bg: "teal.300",
+          }}
+          _active={{
+            bg: "teal.400",
+          }}>
+          Logout
+        </Button>
+     }
 
         
         <SidebarResponsive

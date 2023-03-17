@@ -9,10 +9,12 @@ import {
 } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import AdminNavbarLinks from "./AdminNavbarLinks";
 
 export default function AdminNavbar(props){
   const [scrolled, setScrolled] = useState(false);
+  const authData = useSelector(state => state.auth.authData);
 
   const {
     variant,
@@ -118,8 +120,8 @@ export default function AdminNavbar(props){
         <Box mb={{ sm: "8px", md: "0px" }}>
           <Breadcrumb>
             <BreadcrumbItem color={mainText}>
-              <BreadcrumbLink href="#" color={secondaryText}>
-                Pages
+              <BreadcrumbLink href="#" color={secondaryText} style={{textTransform: "capitalize"}}>
+                {authData.name}
               </BreadcrumbLink>
             </BreadcrumbItem>
 

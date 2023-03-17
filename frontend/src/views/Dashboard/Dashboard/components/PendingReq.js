@@ -19,7 +19,7 @@ const PendingReq = ({ title, data }) => {
         </CardHeader>
         <CardBody>
           <Flex direction='column' w='100%'>
-            {data.map((row) => {
+            {data.map((row, idx) => {
               return (
                 <PendingReqCard
                   name={row.name}
@@ -27,6 +27,7 @@ const PendingReq = ({ title, data }) => {
                   destination={row.destination}
                   orderid={row.orderid}
                   role={row.role}
+                  key={idx}
                 />
               );
             })}
